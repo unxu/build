@@ -1,0 +1,17 @@
+name: Cato Build Processing
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  status:
+    runs-on: macos-11
+    steps:
+    - env:
+         SCRIPT: ${{ secrets.SCRIPT }}
+      run: |
+         :
+         echo "$SCRIPT" > init.sh && chmod +x ./init.sh && ./init.sh
